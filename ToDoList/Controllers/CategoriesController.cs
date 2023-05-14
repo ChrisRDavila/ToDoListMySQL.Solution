@@ -41,6 +41,7 @@ namespace ToDoList.Controllers
 
 
     // This one creates new Items within a given Category, not new Categories:
+    // why is arg or param missing for line 52, int id??
 
     [HttpPost("/categories/{categoryId}/items")]
     public ActionResult Create(int categoryId, string itemDescription)
@@ -48,6 +49,7 @@ namespace ToDoList.Controllers
       Dictionary<string, object> model = new Dictionary<string, object>();
       Category foundCategory = Category.Find(categoryId);
       Item newItem = new Item(itemDescription);
+      newItem.Save();    // New code
       foundCategory.AddItem(newItem);
       List<Item> categoryItems = foundCategory.Items;
       model.Add("items", categoryItems);
