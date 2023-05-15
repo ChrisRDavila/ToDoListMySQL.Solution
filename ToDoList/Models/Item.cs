@@ -6,7 +6,7 @@ namespace ToDoList.Models
   public class Item
   {
     public string Description { get; set; }
-    public int Id { get; set; }
+    public int ItemId { get; set; }
 
     public Item(string description)
     {
@@ -15,7 +15,7 @@ namespace ToDoList.Models
     public Item(string description, int id)
     {
       Description = description;
-      Id = id;
+      ItemId = id;
     }
 
     public override bool Equals(System.Object otherItem)
